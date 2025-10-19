@@ -17,21 +17,14 @@ set(SFML_FETCH_DEPENDENCIES TRUE)
 
 FetchContent_MakeAvailable(sfml)
 
-add_executable(FnafMinigames main.cpp
-    button.h button.cpp
-    engine.h engine.cpp
-    inputhandler.h inputhandler.cpp
-    screen.h screen.cpp
-    screenmanager.h screenmanager.cpp
-    ScreenManagerRemoteControl.h
-    selectinputhandler.h selectinputhandler.cpp
-    selectscreen.h selectscreen.cpp
-    selectuipanel.h selectuipanel.cpp
-    shadermanager.h shadermanager.cpp
-    uipanel.h uipanel.cpp
-)
+add_subdirectory(engine)
+add_subdirectory(screen)
+add_subdirectory(select)
+add_subdirectory(utils)
 
-target_link_libraries(FnafMinigames PRIVATE sfml-graphics sfml-window sfml-system)
+add_executable(FnafMinigames main.cpp)
+
+target_link_libraries(FnafMinigames PRIVATE sfml-graphics sfml-window sfml-system engine screen select utils)
 
 include(GNUInstallDirs)
 install(TARGETS FnafMinigames
