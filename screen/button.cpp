@@ -4,7 +4,6 @@ Button::Button(Vector2f position, float width, float height, unsigned int red, u
 {
     m_Font.loadFromFile(font);
     m_Text = text;
-    m_Button.setSize(Vector2f(width, height));
     m_ButtonText.setFont(m_Font);
     m_ButtonText.setString(text);
     if (!rectangle) {
@@ -18,7 +17,8 @@ Button::Button(Vector2f position, float width, float height, unsigned int red, u
     m_Button.setPosition(position);
     m_ButtonText.setPosition(Vector2f(position.x + 10, position.y + 10));
     m_ButtonText.setCharacterSize(width - 20);
-    m_Collider = FloatRect(position.x, position.y, width, height);
+    m_Collider = m_ButtonText.getGlobalBounds();
+    m_Button.setSize(Vector2f(m_Collider.getSize().x, height));
 }
 
 void Button::draw(RenderWindow &window, Shader* shader)
