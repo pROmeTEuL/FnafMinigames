@@ -1,9 +1,13 @@
 #include "screenmanager.h"
+#include "mainmenuscreen.h"
+#include "fnaf2menuscreen.h"
+#include "gogogoscreen.h"
 
 ScreenManager::ScreenManager(Vector2i res)
 {
     m_Screens["MainMenu"] = make_unique<MainMenuScreen>(this, res);
     m_Screens["Fnaf2Menu"] = make_unique<Fnaf2MenuScreen>(this, res);
+    m_Screens["GOGOGO"] = make_unique<GogogoScreen>(this, res);
 }
 
 void ScreenManager::update(float fps, Vector2i res)
@@ -29,5 +33,5 @@ void ScreenManager::switchScreen(string screenToSwitchTo)
 
 void ScreenManager::playLevel(string level)
 {
-    switchScreen("Game");
+    switchScreen(level);
 }

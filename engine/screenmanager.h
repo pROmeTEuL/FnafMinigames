@@ -5,8 +5,6 @@
 #include <map>
 #include <memory>
 #include "ScreenManagerRemoteControl.h"
-#include "mainmenuscreen.h"
-#include "fnaf2menuscreen.h"
 
 
 class ScreenManager : public ScreenManagerRemoteControl

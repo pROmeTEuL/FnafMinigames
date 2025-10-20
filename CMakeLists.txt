@@ -20,11 +20,12 @@ FetchContent_MakeAvailable(sfml)
 add_subdirectory(engine)
 add_subdirectory(screen)
 add_subdirectory(menu)
+add_subdirectory(fnaf2)
 add_subdirectory(utils)
 
 add_executable(FnafMinigames main.cpp)
 
-target_link_libraries(FnafMinigames PRIVATE sfml-graphics sfml-window sfml-system engine screen menu utils)
+target_link_libraries(FnafMinigames PRIVATE sfml-graphics sfml-window sfml-system engine screen menu fnaf2 utils)
 
 include(GNUInstallDirs)
 install(TARGETS FnafMinigames
