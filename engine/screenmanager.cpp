@@ -2,8 +2,8 @@
 
 ScreenManager::ScreenManager(Vector2i res)
 {
-//    m_Screens["Game"] = make_unique<GameScreen>(this, res);
-    m_Screens["Select"] = make_unique<SelectScreen>(this, res);
+    m_Screens["MainMenu"] = make_unique<MainMenuScreen>(this, res);
+    m_Screens["Fnaf2Menu"] = make_unique<Fnaf2MenuScreen>(this, res);
 }
 
 void ScreenManager::update(float fps, Vector2i res)

@@ -1,22 +1,37 @@
-#include "selectuipanel.h"
+#include "mainmenuuipanel.h"
 #include "shadermanager.h"
 
-void SelectUIPanel::initializeButtons()
+void MainMenuUIPanel::initializeButtons()
 {
+    addButton(m_ButtonPadding,
+              m_HalfScreen.y - m_ButtonHeight - m_ButtonPadding * 2,
+              m_ButtonWidth,
+              m_ButtonHeight,
+              255, 255, 255, "Fnaf 2", "data/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight - m_ButtonPadding,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Play", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Fnaf 3", "data/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight,
+              m_ButtonWidth,
+              m_ButtonHeight,
+              255, 255, 255, "Fnaf 4", "data/fonts/Molten.ttf", false);
+    addButton(m_ButtonPadding,
+              m_HalfScreen.y - m_ButtonHeight + m_ButtonPadding,
+              m_ButtonWidth,
+              m_ButtonHeight,
+              255, 255, 255, "Fnaf SL", "data/fonts/Molten.ttf", false);
+    addButton(m_ButtonPadding,
+              m_HalfScreen.y - m_ButtonHeight + m_ButtonPadding * 2,
               m_ButtonWidth,
               m_ButtonHeight,
               255, 255, 255, "Quit", "data/fonts/Molten.ttf", false);
 }
 
-SelectUIPanel::SelectUIPanel(Vector2i res) :
-    UIPanel(res,
+MainMenuUIPanel::MainMenuUIPanel(Vector2i res)
+    : UIPanel(res,
             (res.x / 18), // Start 2/10 accross
             (res.y / 10), // 1/3 of the resolution from the top
             (res.x / 18) * 16, // as wide as 6/10 of the resolution
@@ -30,7 +45,7 @@ SelectUIPanel::SelectUIPanel(Vector2i res) :
     m_HalfScreen.y = (res.y / 10) * 5;
 
     m_Text.setFillColor(sf::Color(255, 255, 255, 255));
-    m_Text.setString("The Mislead");
+    m_Text.setString("Fnaf Minigames");
 
     m_Font.loadFromFile("data/fonts/MoltenPaint.ttf");
     m_Text.setFont(m_Font);
@@ -42,7 +57,7 @@ SelectUIPanel::SelectUIPanel(Vector2i res) :
     initializeButtons();
 }
 
-void SelectUIPanel::draw(RenderWindow &window, Shader *shader)
+void MainMenuUIPanel::draw(RenderWindow &window, Shader *shader)
 {
     show();
     UIPanel::draw(window, ShaderManager::instance().getFragment("data/shaders/static"));

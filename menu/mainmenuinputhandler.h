@@ -1,9 +1,9 @@
-#ifndef SELECTINPUTHANDLER_H
-#define SELECTINPUTHANDLER_H
+#ifndef MAINMENUINPUTHANDLER_H
+#define MAINMENUINPUTHANDLER_H
 
 #include "inputhandler.h"
 
-class SelectInputHandler : public InputHandler
+class MainMenuInputHandler : public InputHandler
 {
     // InputHandler interface
 public:
@@ -11,4 +11,4 @@ public:
     void handleLeftClick(const string &buttonInteractedWith, RenderWindow &window) override;
 };
 
-#endif // SELECTINPUTHANDLER_H
+#endif // MAINMENUINPUTHANDLER_H

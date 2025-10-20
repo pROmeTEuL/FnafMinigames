@@ -5,14 +5,15 @@
 #include <map>
 #include <memory>
 #include "ScreenManagerRemoteControl.h"
-#include "selectscreen.h"
+#include "mainmenuscreen.h"
+#include "fnaf2menuscreen.h"
 
 
 class ScreenManager : public ScreenManagerRemoteControl
 {
     map<string, unique_ptr<Screen>> m_Screens;
 protected:
-    string m_CurrentScreen = "Select";
+    string m_CurrentScreen = "MainMenu";
 public:
     ScreenManager(Vector2i res);
     void update(float fps, Vector2i res);
