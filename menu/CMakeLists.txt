@@ -1,10 +1,7 @@
-set(SOURCES
+add_library(menu
     mainmenuinputhandler.h mainmenuinputhandler.cpp
     mainmenuscreen.h mainmenuscreen.cpp
     mainmenuuipanel.h mainmenuuipanel.cpp
-)
-
-add_library(menu ${SOURCES}
     fnaf2menuscreen.h fnaf2menuscreen.cpp
     fnaf2menuuipanel.h fnaf2menuuipanel.cpp
     fnaf2menuinputhandler.h fnaf2menuinputhandler.cpp)
