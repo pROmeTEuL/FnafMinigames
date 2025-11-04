@@ -3,7 +3,7 @@
 
 TakeCakeToChildrenUIPanel::TakeCakeToChildrenUIPanel(Vector2i res)
     : UIPanel(res,
-            0, // Start 2/10 accross
+            res.x, // Start 2/10 accross
             res.y, // 1/3 of the resolution from the top
             res.x, // as wide as 6/10 of the resolution
             res.y, // and as tall as 1/3 of the resolution
