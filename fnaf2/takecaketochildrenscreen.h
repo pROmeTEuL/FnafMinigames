@@ -1,8 +1,13 @@
 #ifndef TAKECAKETOCHILDRENSCREEN_H
 #define TAKECAKETOCHILDRENSCREEN_H
 
-#include <player.h>
 #include <screen.h>
+#include <player.h>
+#include <border.h>
+
+#include "takecaketochildrenchild.h"
+
+using namespace tctc;
 
 class TakeCakeToChildrenScreen : public Screen
 {
@@ -11,12 +16,14 @@ public:
 
     // Screen interface
 public:
-    void update(float fps, Vector2i res) override;
+    void update(float delta, Vector2i res) override;
     void draw(RenderWindow &window, Shader *shader) override;
 
 private:
     ScreenManagerRemoteControl* m_SMRC;
     std::unique_ptr<Player> m_player;
+    std::vector<Child> m_children;
+    std::vector<Border> m_borders;
 };
 
 #endif // TAKECAKETOCHILDRENSCREEN_H
