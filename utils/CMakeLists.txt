@@ -1,8 +1,10 @@
-set(SOURCES
-	shadermanager.h shadermanager.cpp
+add_library(utils
+    shadermanager.h shadermanager.cpp
+    player.h player.cpp
+    texturemanager.h texturemanager.cpp
+    collidable.h collidable.cpp
+    border.cpp border.h
 )
-
-add_library(utils ${SOURCES})
 
 target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
