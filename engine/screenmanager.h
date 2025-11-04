@@ -4,8 +4,11 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <memory>
+#include "screen.h"
 #include "ScreenManagerRemoteControl.h"
 
+using namespace sf;
+using namespace std;
 
 class ScreenManager : public ScreenManagerRemoteControl
 {
