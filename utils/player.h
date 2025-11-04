@@ -23,11 +23,22 @@ enum class Movement {
 class Player : public Collidable
 {
 public:
+    /**
+     * @brief Player
+     * @param pos
+     * @param sprite_paths
+     *        0 -> left_1
+     *        1 -> left_2
+     *        2 -> right_1
+     *        3 -> right_2
+     */
     Player(sf::Vector2<float> pos, std::unique_ptr<std::vector<std::string> > sprite_paths);
+
     virtual void input_pressed(sf::Event &event);
     virtual void input_released(sf::Event &event);
     virtual void update(float delta);
     virtual void draw(sf::RenderWindow &window);
+
     void stopMovement(Movement direction);
     void forcedMovement(sf::Vector2<float> pos);
     void fullStop();
@@ -37,6 +48,7 @@ protected:
     void updateCollisionRect();
 
 protected:
+    /// Modify from child class to match the needs:
     float m_speed = 100.f;
     float m_trigger_animation = 0.50f;
     float m_animationTimer = 0.f;
