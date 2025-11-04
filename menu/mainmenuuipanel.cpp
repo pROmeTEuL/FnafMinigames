@@ -7,27 +7,27 @@ void MainMenuUIPanel::initializeButtons()
               m_HalfScreen.y - m_ButtonHeight - m_ButtonPadding * 2,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Fnaf 2", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Fnaf 2", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight - m_ButtonPadding,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Fnaf 3", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Fnaf 3", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Fnaf 4", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Fnaf 4", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight + m_ButtonPadding,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Fnaf SL", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Fnaf SL", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight + m_ButtonPadding * 2,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Quit", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Quit", "assets/fonts/Molten.ttf", false);
 }
 
 MainMenuUIPanel::MainMenuUIPanel(Vector2i res)
@@ -47,7 +47,7 @@ MainMenuUIPanel::MainMenuUIPanel(Vector2i res)
     m_Text.setFillColor(sf::Color(255, 255, 255, 255));
     m_Text.setString("Fnaf Minigames");
 
-    m_Font.loadFromFile("data/fonts/MoltenPaint.ttf");
+    m_Font.loadFromFile("assets/fonts/MoltenPaint.ttf");
     m_Text.setFont(m_Font);
 
     m_Text.setPosition(Vector2f(m_HalfScreen.x - 80 * 5, res.y / 10 + 10));
@@ -60,7 +60,7 @@ MainMenuUIPanel::MainMenuUIPanel(Vector2i res)
 void MainMenuUIPanel::draw(RenderWindow &window, Shader *shader)
 {
     show();
-    UIPanel::draw(window, ShaderManager::instance().getFragment("data/shaders/static"));
+    UIPanel::draw(window, ShaderManager::instance().getFragment("assets/shaders/static"));
     if (shader == nullptr)
         window.draw(m_Text);
     else

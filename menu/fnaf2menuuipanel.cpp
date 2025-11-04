@@ -18,7 +18,7 @@ Fnaf2MenuUIPanel::Fnaf2MenuUIPanel(Vector2i res)
     m_Text.setFillColor(sf::Color(255, 255, 255, 255));
     m_Text.setString("Fnaf 2 Minigames");
 
-    m_Font.loadFromFile("data/fonts/MoltenPaint.ttf");
+    m_Font.loadFromFile("assets/fonts/MoltenPaint.ttf");
     m_Text.setFont(m_Font);
 
     m_Text.setPosition(Vector2f(m_HalfScreen.x - 80 * 5, res.y / 10 + 10));
@@ -31,7 +31,7 @@ Fnaf2MenuUIPanel::Fnaf2MenuUIPanel(Vector2i res)
 void Fnaf2MenuUIPanel::draw(RenderWindow &window, Shader *shader)
 {
     show();
-    UIPanel::draw(window, ShaderManager::instance().getFragment("data/shaders/static"));
+    UIPanel::draw(window, ShaderManager::instance().getFragment("assets/shaders/static"));
     if (shader == nullptr)
         window.draw(m_Text);
     else
@@ -44,25 +44,25 @@ void Fnaf2MenuUIPanel::initializeButtons()
               m_HalfScreen.y - m_ButtonHeight - m_ButtonPadding * 2,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "GO! GO! GO!", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "GO! GO! GO!", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight - m_ButtonPadding,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Feed The Kids", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Take Cake To Children", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "IDK", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "IDK", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight + m_ButtonPadding,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "IDK2", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "IDK2", "assets/fonts/Molten.ttf", false);
     addButton(m_ButtonPadding,
               m_HalfScreen.y - m_ButtonHeight + m_ButtonPadding * 2,
               m_ButtonWidth,
               m_ButtonHeight,
-              255, 255, 255, "Back", "data/fonts/Molten.ttf", false);
+              255, 255, 255, "Back", "assets/fonts/Molten.ttf", false);
 }

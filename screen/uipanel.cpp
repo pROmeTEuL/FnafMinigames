@@ -46,8 +46,8 @@ void UIPanel::draw(RenderWindow &window, Shader* shader)
     window.setView(m_View);
     if (!m_hidden) {
         auto tmp = m_panel.getGlobalBounds();
-        ShaderManager::instance().getFragment("data/shaders/edge")->setUniform("vertTexCoord", Glsl::Vec4(tmp.left, tmp.top, tmp.width, tmp.height));
-        window.draw(m_panel, ShaderManager::instance().getFragment("data/shaders/edge"));
+        ShaderManager::instance().getFragment("assets/shaders/edge")->setUniform("vertTexCoord", Glsl::Vec4(tmp.left, tmp.top, tmp.width, tmp.height));
+        window.draw(m_panel, ShaderManager::instance().getFragment("assets/shaders/edge"));
         for (auto& it : m_Buttons) {
             it->draw(window, shader);
         }
