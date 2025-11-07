@@ -23,8 +23,16 @@ UIPanel::UIPanel(Vector2i res, int x, int y,
     m_View.setCenter(width / 2, height / 2);
 
     // Where in the window is the view positioned?
-    float viewportStartX = 1.f / (res.x / x);
-    float viewportStartY = 1.f / (res.y / y);
+    float viewportStartX;
+    float viewportStartY;
+    if (x != 0)
+        viewportStartX = 1.f / (res.x / x);
+    else
+        viewportStartX = 0.f;
+    if (y != 0)
+        viewportStartY = 1.f / (res.y / y);
+    else
+        viewportStartY = 0.f;
     float viewportSizeX = 1.f / (res.x / width);
     float viewportSizeY = 1.f / (res.y / height);
 
