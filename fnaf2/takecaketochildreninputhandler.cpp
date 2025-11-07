@@ -1,16 +1,20 @@
 #include "takecaketochildreninputhandler.h"
 
-TakeCakeToChildrenInputHandler::TakeCakeToChildrenInputHandler() {}
+TakeCakeToChildrenInputHandler::TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player)
+    : m_player(player)
+{
+
+}
 
 void TakeCakeToChildrenInputHandler::handleKeyPressed(RenderWindow &window, Event &event)
 {
     if (Keyboard::isKeyPressed(Keyboard::Escape)) {
         getPointerToSMRC()->switchScreen("Fnaf2Menu");
     }
-    // HANDLE PLAYER INPUT
+    m_player->input_pressed(event);
 }
 
 void TakeCakeToChildrenInputHandler::handleKeyReleased(RenderWindow &window, Event &event)
 {
-    // HANDLE PLAYER INPUT
+    m_player->input_released(event);
 }

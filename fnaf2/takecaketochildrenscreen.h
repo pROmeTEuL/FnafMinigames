@@ -21,7 +21,7 @@ public:
 
 private:
     ScreenManagerRemoteControl* m_SMRC;
-    std::unique_ptr<Player> m_player;
+    std::shared_ptr<Player> m_player;
     std::vector<Child> m_children;
     std::vector<Border> m_borders;
 };
