@@ -24,6 +24,8 @@ private:
     std::shared_ptr<Player> m_player;
     std::vector<Child> m_children;
     std::vector<Border> m_borders;
+
+    bool m_paused = true;
 };
 
 #endif // TAKECAKETOCHILDRENSCREEN_H

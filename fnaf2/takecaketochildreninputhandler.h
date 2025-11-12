@@ -7,7 +7,7 @@
 class TakeCakeToChildrenInputHandler : public InputHandler
 {
 public:
-    TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player);
+    TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player, bool &paused);
 
     // InputHandler interface
 public:
@@ -16,6 +16,7 @@ public:
 
 private:
     std::shared_ptr<Player> m_player;
+    bool *m_paused;
 };
 
 #endif // TAKECAKETOCHILDRENINPUTHANDLER_H

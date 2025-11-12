@@ -17,7 +17,7 @@ TakeCakeToChildrenScreen::TakeCakeToChildrenScreen(ScreenManagerRemoteControl *s
 
     m_SMRC = smrc;
     auto tctcui = make_unique<TakeCakeToChildrenUIPanel>(res);
-    auto tctcih = make_shared<TakeCakeToChildrenInputHandler>(m_player);
+    auto tctcih = make_shared<TakeCakeToChildrenInputHandler>(m_player, m_paused);
     addPanel(std::move(tctcui), smrc, tctcih);
 
     m_borders.push_back(Border(res.x - 100, 50, 50, res.y - 100));
@@ -36,6 +36,8 @@ TakeCakeToChildrenScreen::TakeCakeToChildrenScreen(ScreenManagerRemoteControl *s
 
 void TakeCakeToChildrenScreen::update(float delta, Vector2i res)
 {
+    if (m_paused)
+        return;
     m_player->update(delta);
     for (auto &child : m_children)
         child.update(delta);
@@ -49,5 +51,8 @@ void TakeCakeToChildrenScreen::draw(RenderWindow &window, Shader *shader)
         border.draw(window);
     for(auto child : m_children)
         child.draw(window);
+    if (m_paused) {
+        // draw paused text
+    }
     m_player->draw(window);
 }
