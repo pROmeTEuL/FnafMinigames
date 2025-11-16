@@ -6,6 +6,7 @@
 #include <border.h>
 
 #include "takecaketochildrenchild.h"
+#include "takecaketochildreninputhandler.h"
 
 using namespace tctc;
 
@@ -25,7 +26,8 @@ private:
     std::vector<Child> m_children;
     std::vector<Border> m_borders;
 
-    bool m_paused = true;
+    State m_state = State::OVER;
+    bool m_reset = false;
 };
 
 #endif // TAKECAKETOCHILDRENSCREEN_H
