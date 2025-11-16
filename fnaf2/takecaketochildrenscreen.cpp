@@ -17,7 +17,7 @@ TakeCakeToChildrenScreen::TakeCakeToChildrenScreen(ScreenManagerRemoteControl *s
 
     m_SMRC = smrc;
     auto tctcui = make_unique<TakeCakeToChildrenUIPanel>(res);
-    auto tctcih = make_shared<TakeCakeToChildrenInputHandler>(m_player, m_state, make_shared<std::vector<Child>>(m_children));
+    auto tctcih = make_shared<TakeCakeToChildrenInputHandler>(m_player, m_state, m_children);
     addPanel(std::move(tctcui), smrc, tctcih);
 
     m_borders.push_back(Border(res.x - 100, 50, 50, res.y - 100));
@@ -32,6 +32,22 @@ TakeCakeToChildrenScreen::TakeCakeToChildrenScreen(ScreenManagerRemoteControl *s
     m_children.push_back(Child(res.x / 10 * 8, res.y / 4));
     m_children.push_back(Child(res.x / 10 * 8, (res.y / 4) * 2));
     m_children.push_back(Child(res.x / 10 * 8, (res.y / 4) * 3));
+
+    m_font.loadFromFile("assets/fonts/LcdSolid.ttf");
+
+    m_pausedText.setFillColor(sf::Color(255, 255, 255, 255));
+    m_pausedText.setFont(m_font);
+    m_pausedText.setCharacterSize(res.x / 6.4);
+    m_pausedText.setString("Paused");
+    m_pausedText.setOrigin({m_pausedText.getLocalBounds().width / 2, m_pausedText.getLocalBounds().height / 2,});
+    m_pausedText.setPosition(res.x / 2, res.y / 2);
+
+    m_overText.setFillColor(sf::Color(255, 0, 0, 255));
+    m_overText.setFont(m_font);
+    m_overText.setCharacterSize(res.x / 6.4);
+    m_overText.setString("Game Over");
+    m_overText.setOrigin({m_overText.getLocalBounds().width / 2, m_overText.getLocalBounds().height / 2,});
+    m_overText.setPosition(res.x / 2, res.y / 2);
 }
 
 void TakeCakeToChildrenScreen::update(float delta, Vector2i res)
@@ -72,10 +88,10 @@ void TakeCakeToChildrenScreen::draw(RenderWindow &window, Shader *shader)
         child.draw(window);
     switch(m_state) {
     case State::PAUSED:
-        // Paused text
+        window.draw(m_pausedText);
         break;
     case State::OVER:
-        // Over text
+        window.draw(m_overText);
         break;
     default:
         break;

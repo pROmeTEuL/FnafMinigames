@@ -4,6 +4,8 @@ add_library(utils
     texturemanager.h texturemanager.cpp
     collidable.h collidable.cpp
     border.cpp border.h
+
+
 )
 
 target_include_directories(utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

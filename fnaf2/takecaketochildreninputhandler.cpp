@@ -25,6 +25,7 @@ void TakeCakeToChildrenInputHandler::handleKeyPressed(RenderWindow &window, Even
             break;
         case State::OVER:
             m_player->forcedMovement(sf::Vector2<float>(window.getSize().x / 2, window.getSize().y / 2));
+#error Fix this range for
             for (auto &child : *m_children)
                 child.reset();
             *m_state = State::PLAYING;

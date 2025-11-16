@@ -26,8 +26,12 @@ private:
     std::vector<Child> m_children;
     std::vector<Border> m_borders;
 
-    State m_state = State::OVER;
+    State m_state = State::PAUSED;
     bool m_reset = false;
+
+    sf::Font m_font;
+    sf::Text m_pausedText;
+    sf::Text m_overText;
 };
 
 #endif // TAKECAKETOCHILDRENSCREEN_H
