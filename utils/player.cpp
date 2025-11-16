@@ -15,6 +15,21 @@ Player::Player(sf::Vector2<float> pos, std::unique_ptr<std::vector<std::string>>
     updateCollisionRect();
 }
 
+Player::Player(sf::Vector2<float> pos, std::unique_ptr<std::vector<std::string> > sprite_paths, float speed)
+    : m_pos(pos)
+    , m_speed(speed)
+{
+    m_sprite_paths = std::move(sprite_paths);
+
+    m_sprite1.setTexture(TextureManager::instance().texture(m_sprite_paths->at(0)));
+    m_sprite2.setTexture(TextureManager::instance().texture(m_sprite_paths->at(1)));
+
+    m_sprite1.setPosition(m_pos);
+    m_sprite2.setPosition(m_pos);
+
+    updateCollisionRect();
+}
+
 void Player::input_pressed(sf::Event &event)
 {
     if (event.key.code == sf::Keyboard::Up) {

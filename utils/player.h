@@ -33,6 +33,7 @@ public:
      *        3 -> right_2
      */
     Player(sf::Vector2<float> pos, std::unique_ptr<std::vector<std::string> > sprite_paths);
+    Player(sf::Vector2<float> pos, std::unique_ptr<std::vector<std::string> > sprite_paths, float speed);
 
     virtual void input_pressed(sf::Event &event);
     virtual void input_released(sf::Event &event);
