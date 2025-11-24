@@ -17,7 +17,7 @@ enum class State {
 class TakeCakeToChildrenInputHandler : public InputHandler
 {
 public:
-    TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player, State &state, std::shared_ptr<std::vector<tctc::Child>> children);
+    TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player, State &state, bool &reset);
 
     // InputHandler interface
 public:
@@ -26,8 +26,8 @@ public:
 
 private:
     std::shared_ptr<Player> m_player;
-    std::shared_ptr<std::vector<tctc::Child>> m_children;
     State *m_state;
+    bool *m_reset;
 };
 
 #endif // TAKECAKETOCHILDRENINPUTHANDLER_H

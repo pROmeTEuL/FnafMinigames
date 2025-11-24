@@ -1,11 +1,11 @@
 #include "takecaketochildreninputhandler.h"
 
-TakeCakeToChildrenInputHandler::TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player, State &state, std::shared_ptr<std::vector<tctc::Child>> children)
+TakeCakeToChildrenInputHandler::TakeCakeToChildrenInputHandler(std::shared_ptr<Player> player, State &state, bool &reset)
     : m_player(player)
     , m_state(&state)
-    , m_children(children)
 {
-
+    m_reset = &reset;
+    *m_reset = false;
 }
 
 void TakeCakeToChildrenInputHandler::handleKeyPressed(RenderWindow &window, Event &event)
@@ -25,9 +25,7 @@ void TakeCakeToChildrenInputHandler::handleKeyPressed(RenderWindow &window, Even
             break;
         case State::OVER:
             m_player->forcedMovement(sf::Vector2<float>(window.getSize().x / 2, window.getSize().y / 2));
-#error Fix this range for
-            for (auto &child : *m_children)
-                child.reset();
+            *m_reset = true;
             *m_state = State::PLAYING;
             break;
         default:
